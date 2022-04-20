@@ -1,0 +1,22 @@
+<header class="container">
+       
+    <nav>
+        <div class="up" >
+            <h1 class="logo"><a href="/">ARTISTIC <span>VILLAGE</span></a></h1>
+            <small class="text">ONE STORY AT A TIME</small>
+        </div>
+        
+        <ul>
+            <% if(locals.isLoggedIn) { %>
+                <li class="nav-link"><a href="/">Home</a></li>
+                <li class="nav-link"><a href="/services">Services</a></li> 
+                <li class="nav-link"><a href="/logout">Logout</a></li>
+            <% } else {%>
+                <li class="nav-link"><a href="/login">👤 My Account</a></li>
+            <% } %>
+        </ul>
+        
+    </nav>
+    
+
+ </header>
