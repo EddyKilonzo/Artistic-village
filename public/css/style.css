@@ -73,34 +73,6 @@ nav .logo a {
 main{
     height: 70vh;
 }
-
-#services {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 10px;
-}
-#services p {
-    color: #ffffff;
-    font-family: Ubuntu-Light;
-}
-
-.service {
-    width: 45%;
-    height: 75%;
-    text-align: center;
-    font-size: 24px;
-    margin: 20px;
-}
-#services .pics {
-    border-radius: 5px;
-    width: 100%;
-    height:100%;
-}
-.service a {
-    text-decoration: none;
-    color:#ffffff;
-}
 .footer {
     background-color: #000000;
     border-top: 1px solid rgb(255, 0, 0);
@@ -115,17 +87,6 @@ main{
 .footer .left {
    margin-left: 10%;
    margin-top: 5px;
-}
-.footer .right {
-    margin-right: 10%;
-}
-.footer .right p:hover {
-    color: #4b0a0a;
-    transition-duration: 0.3s;
-}
-.footer .left .bt:hover {
-    color: #4b0a0a;
-    transition-duration: 0.3s;
 }
 #logo {
     padding: 5px;
@@ -230,10 +191,10 @@ form {
     top: 10vh;
     opacity: 1;
     left: 40vw;
-    font-size: 3rem;
+    font-size: 2rem;
     color: #fff;
-    font-family: Exo;  
-    transform: translateZ(-50%);
+    font-family: Exo;
+    opacity: 1;
 }
 
 #slide{
@@ -243,7 +204,7 @@ form {
 }
 
 #slide[data-active] {
-    opacity: 1;
+    opacity: 0.9;
 }
 .carousel button {
     position: absolute;
@@ -273,6 +234,99 @@ form {
 .carousel > ul {
     list-style: none;
 }
+.bio {
+    text-align: center;
+    color: #fff;
+    font-family: Exo;
+    margin-bottom: 20px;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    height: 40%;
+    width: 40%;
+    color: #fff;
+    font-family: Exo;
+}
+.user-images{
+    width: 400px;
+    height: auto;
+    color: #fff;
+    font-family: Exo;
+    display: flex;
+}
+.user-images .description {
+    color: rgb(227, 24, 24);
+}
+.user-images img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: 20px;
+    padding: 10px;
+}
+.not-found {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+.not-found p {
+    color: #e9e1e1;
+    font-family: Exo;
+    font-size: 30px;
+}
+.not-found img {
+    width: 40%;
+    height: 40%;
+}
 
+@media screen  and (max-width:600px) {
+
+    .footer {
+        font-size: 13px;
+        margin-top: 100%;
+        position: absolute;
+        top: 125%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .form-text {
+        color: rgb(255, 0, 0);
+        font-family: Exo;
+        text-align: center;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: bolder;
+        margin-bottom: 4px;
+    }
+    .service {
+        width: 90%;
+        height: 60%;
+        text-align: center;
+        font-size: 17px;
+        margin: 10px;
+    }
+    #services .pics {
+        border-radius: 5px;
+        width: 90%;
+        height:100%;
+    }
+    .nav-link {
+        display: none;
+    }
+    nav .text {
+        font-size: 10px;
+        margin-left: 55px;
+        margin-top: 0;
+    }
+    .logo {
+       font-size: 18px;
+    }
+   
+    
+}
 
 
