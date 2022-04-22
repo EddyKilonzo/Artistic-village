@@ -2,6 +2,7 @@ import  express  from "express";
 import mysql from "mysql";
 import bcrypt from "bcrypt";
 import session  from "express-session";
+import multer from "multer";
 
 const app = express();
 const connection = mysql.createConnection({
@@ -10,6 +11,8 @@ const connection = mysql.createConnection({
     password:'',
     database: 'artistic'
 });
+
+const upload = multer({dest : './public/images/uploads/'})
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -28,22 +31,16 @@ app.use((req, res, next) => {
     } else {
         res.locals.isLoggedIn = true;
         res.locals.username = req.session.username;
+        res.locals.userID = req.session.userID;
+        
     }
     next();
 });
 
-
-
 app.get('/', (req, res) => {
     res.render('index.ejs')
 });
-app.get('/login', (req, res) => {
-    if(res.locals.isLoggedIn) {
-        res.redirect('/')
-    } else {
-        res.render('login.ejs', {error: false})
-    }
-});
+
 app.get('/signup', (req, res) => {
     let user = {
         email: '',
@@ -98,23 +95,30 @@ app.post('/signup', (req, res) => {
             });
         }
 });    
+app.get('/login', (req, res) => {
+    if(res.locals.isLoggedIn) {
+        res.redirect('/')
+    } else {
+        res.render('login.ejs', {error: false})
+    }
+});
 
-// submitting login form for user authentication
+
 app.post('/login', (req, res) => {
     let email = req.body.email
     let password = req.body.password
     connection.query(
-        'SELECT * FROM users WHERE email = ?', [email],
+        'SELECT * FROM users WHERE email = ?',
+        [email],
         (error, results) => {
             if(results.length > 0) {
                 bcrypt.compare(password, results[0].password, (error, isEqual) => {
                     if(isEqual) {
-                        // authentication successful
+                       
                         req.session.userID = results[0].id;
                         req.session.username = results[0].username;
-                        res.redirect('/');
+                        res.redirect('/find-talent');
                     } else {
-                        // authentication failed
                         let message = 'Email/password mismatch.'
                         res.render('login.ejs', {
                             error: true,
@@ -125,7 +129,6 @@ app.post('/login', (req, res) => {
                     }
                 })
             } else {
-                // console.log('user does not exist');
                 let message = 'Account does not exist. Please create one.'
                 res.render('login.ejs', {
                     error: true,
@@ -137,33 +140,85 @@ app.post('/login', (req, res) => {
         }
     );
 })
-//logout functionality
 app.get('/logout', (req, res) => {
     req.session.destroy((error) => {
         res.redirect('/');
     })
 });
-app.get('/films', (req, res) => {
-    res.render('films.ejs')
+app.get('/profile/:id', (req, res) => {
+    if(res.locals.isLoggedIn && req.session.userID===parseInt(req.params.id) ) {
+        connection.query(
+            `SELECT * FROM users WHERE id = ${parseInt(req.params.id)}`,
+            (error, user)=>{
+                connection.query(
+                    `SELECT image FROM images WHERE imgOwner = ${parseInt(req.params.id)}`,
+                    (error,images)=>{
+                        // console.log(images)
+                        // console.log(user)
+                        res.render('profile.ejs', {user: user[0], images: images})
+                    }
+                )
+            }
+        )
+    } else {
+        console.log('not loged in or id do not match')
+        res.redirect('find-talent')
+    }
+});
+app.get('/find-talent', (req, res) => {
+    connection.query(
+        `SELECT * FROM users`,
+        (error, results)=>{
+            res.render('find-talent.ejs', {talents: results})
+        }
+    )
+ 
+});
+app.get('/user/:id', (req, res) => {
+    console.log(parseInt(req.params.id))
+    connection.query(
+        `SELECT * FROM users WHERE id = ${parseInt(req.params.id)}`,
+        (error, results) => {
+            if(error){
+                console.log(error)
+            }else{
+                connection.query(
+                `SELECT * FROM images WHERE imgOwner = ${parseInt(req.params.id)}`,
+                (error, images)=> {
+                    if(error){
+                        console.log(error)
+                    }else{
+                        res.render('user.ejs', {user: results[0], images: images})
+                    }
+                })
+            }
+        }
+    )
+})
+app.get('/add-images', (req,res)=>{
+    if(res.locals.isLoggedIn){
+        res.render('add-images.ejs')
+    }else{
+        res.redirect('/login')
+    }
+})
+app.post('/add-image', upload.single('images'), (req, res) => {
+    let description = req.body.description;
+    connection.query(
+        `INSERT INTO images(image, imgOwner, description) VALUES('/images/uploads/${req.file.filename}', ${req.session.userID}, ?)`,
+        [description],        
+        (error,results)=>{
+            if(error){
+                console.log(error)
+            }else{
+                res.redirect(`/profile/${req.session.userID}`)
+            }
+        }
+    )
+})
+app.get('*', (req, res) => {
+    res.render('404.ejs')
+});
 
-});
-app.get('/services', (req, res) => {
-    res.render('services.ejs')
-});
-app.get('/weddings', (req, res) => {
-    res.render('weddings.ejs')
-});
-app.get('/films', (req, res) => {
-    res.render('films.ejs')
-});
-app.get('/music-videos', (req, res) => {
-    res.render('music-videos.ejs')
-});
-app.get('/photography', (req, res) => {
-    res.render('photography.ejs')
-});
 
-
-
-
-app.listen(4000);
+app.listen(4000, ()=>console.log('server running on PORT 4000'));
