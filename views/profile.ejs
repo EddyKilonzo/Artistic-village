@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+
+<div class="bio">
+    <h1>@<%= `${user.username}`%></h1>
+    <p><%= user.email%></p>
+    
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, exercitationem?</p>
+</div>
+<div>
+    
+    <button style="display:flex; background: none; border: none;"><a style="color: red;" href="/add-images">+ ADD IMAGES</a></button>
+    
+</div>
+<hr>
+<div class="user-images">
+    <%images.forEach(image=>{%> 
+        <img src="<%=image.image%>">
+        <p style="color: white;"><%=image.description%></p>
+        
+    <%})%>
+</div>
+
+
+<%- include('partials/footer') %>

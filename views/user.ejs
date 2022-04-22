@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+
+    
+    <h1 style="color: white; text-align: center;">@<%= `${user.username}`%></h1>
+    <p style="color: white; text-align: center;"><%= user.email%></p>
+    <p style="color: antiquewhite; text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut neque molestias explicabo similique voluptatum ad.</p>
+    <hr>
+<div class="profile">
+    <div class="user-gallery">
+        <%images.forEach(image=>{%>
+            <img style="width: 100%;" src="<%=image.image%>" alt="">
+            <p style="color: white;"><%=image.description%></p>
+        <%})%>
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>

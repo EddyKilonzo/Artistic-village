@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+<div class="talents">
+    <%talents.forEach(talent=>{%>
+        <div class="single-talent" style="width: 300px; display: inline-block;background-color: aliceblue; border-radius: 10px;margin: 20px; height: 300px;">
+            <h4 style="text-align: center;"><%=talent.username%></h4>
+            <h6 style="text-align: center;"><%=talent.email%></h6>
+            <p style="text-align: center;">photographer</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa unde corporis repellat? Dicta error perferendis repudiandae minima sunt minus aliquam autem, rerum iste qui sit eveniet accusantium modi porro quaerat!</p>
+            <a  href="/user/<%=talent.id%>">
+                <button>HIRE <%=talent.username.split(' ')[0].toUpperCase()%> </button>
+            </a>
+        </div>
+    <%})%>
+    
+   
+</div>
+   
+<%- include('partials/footer') %>

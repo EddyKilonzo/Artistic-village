@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+        
+    <div style="margin-top: 100px;" class="access-point">
+        <form action="/add-image" method="post" enctype="multipart/form-data">
+            <input  type="file" name="images" id="">
+            <!-- <input type="text" name="description" id=""> -->
+            <label style="margin-top: 10px;" for="">Description</label>
+            <textarea  name="description" id="" cols="30" rows="10"></textarea>
+            <button style="margin-top: 10px;" class="btn" type="submit">Submit</button>
+        </form>
+    </div>
+
+<%- include('partials/footer') %>
