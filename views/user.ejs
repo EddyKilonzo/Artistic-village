@@ -3,15 +3,22 @@
 
 
     
-    <h1 style="color: white; text-align: center;">@<%= `${user.username}`%></h1>
+    <div class="bio">
+        <h1 style="color: white; text-align: center;">@<%= user.username%></h1>
+        <img style="width:200px; height: 200px; border-radius: 600px; object-fit: cover; margin-top: 10px;" src="<%= profile.profilePic%>" alt="">
+    <p><%= profile.service%></p>
     <p style="color: white; text-align: center;"><%= user.email%></p>
-    <p style="color: antiquewhite; text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut neque molestias explicabo similique voluptatum ad.</p>
+    <p><%= profile.bio%></p>
+    <span>Pricing: <%= profile.price%></span>
+    </div>
+    
+    
     <hr>
 <div class="profile">
     <div class="user-gallery">
         <%images.forEach(image=>{%>
             <img style="width: 100%;" src="<%=image.image%>" alt="">
-            <p style="color: white;"><%=image.description%></p>
+            <p style="color: white; text-align: center;"><%=image.description%></p>
         <%})%>
     </div>
 </div>

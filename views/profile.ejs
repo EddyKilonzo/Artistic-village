@@ -3,20 +3,29 @@
 
 
 <div class="bio">
-    <h1>@<%= `${user.username}`%></h1>
-    <p><%= user.email%></p>
+    <h1><%= username %></h1>
+    <img style="width:200px; height: 200px; border-radius: 600px; object-fit: cover; margin-top: 10px;" src="<%= profile.profilePic%>" alt="">
+    <p><%= user.email %></p>
+    <p><%= profile.service%></p>
+    <div><%= profile.bio%></div>
+    <span>Pricing: <%= profile.price%></span>
+  
     
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, exercitationem?</p>
+    
 </div>
 <div>
-    
-    <button style="display:flex; background: none; border: none;"><a style="color: red;" href="/add-images">+ ADD IMAGES</a></button>
+    <div>
+        <button style="display:flex; background: none; border: none;font-size: 20px;" ><a style="color: red;" href="/add-images">+ ADD IMAGES</a></button>
+    </div>
+    <div>
+        <button style="display:flex; background: none; border: none; font-size: 20px;"><a style="color: rgb(51, 39, 185);" href="/edit-profile">⚙️ EDIT PROFILE</a></button>
+    </div>
     
 </div>
 <hr>
 <div class="user-images">
     <%images.forEach(image=>{%> 
-        <img src="<%=image.image%>">
+        <img style="width: 100%;" src="<%=image.image%>" alt="">
         <p style="color: white;"><%=image.description%></p>
         
     <%})%>
