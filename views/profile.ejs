@@ -4,13 +4,13 @@
 
 <div class="bio">
     <h1><%= username %></h1>
-    <img style="width:200px; height: 200px; border-radius: 600px; object-fit: cover; margin-top: 10px;" src="<%= profile.profilePic%>" alt="">
+    <img style="width:200px; height: 200px; border-radius: 600px; object-fit: cover; margin-top: 10px; ;" src="<%= profile.profilePic%>" alt="">
     <p><%= user.email %></p>
     <p><%= profile.service%></p>
     <div><%= profile.bio%></div>
     <span>Pricing: <%= profile.price%></span>
-    <a href="//wa.me/<%= profile.contact%>">whatsapp</a>
-    <a href="//eddboy188@gmail.com">email</a>
+    <a href="wa.me/<%= profile.contact%>"><img src="images/wh.jpg" alt="em">whatsapp</a>
+    <a href = "mailto: <%= user.email%>">Send Email</a>
   
     
     
@@ -24,6 +24,7 @@
     </div>
     
 </div>
+<img  style="background-color:aliceblue" src="images/wh.jpg" alt="">
 <hr>
 <div class="profile">
     <div class="user-gallery">

@@ -5,18 +5,24 @@
     
     <div class="bio">
         <h1 style="color: white; text-align: center;">@<%= user.username%></h1>
-        <img style="width:200px; height: 200px; border-radius: 600px; object-fit: cover; margin-top: 10px;" src="<%= profile.profilePic%>" alt="">
+        <img style="width:200px; height: 200px; border-radius: 600px; object-fit: cover; margin-top: 10px; " src="<%= profile.profilePic%>" alt="">
     <p><%= profile.service%></p>
     <p style="color: white; text-align: center;"><%= user.email%></p>
     <p><%= profile.bio%></p>
     <span>Pricing: <%= profile.price%></span>
     <p>Contact Via:</p>
-    <!-- <a href="//wa.me/<%= profile.contact%>"><img src="/project/public/images/films.jpeg" alt="erfd"></a> -->
-    <img src="/project/public/images/wed.jpeg" alt="">
-    <a href = "mailto: <%= user.email%>">Send Email</a>
+    <div class="contact">
+        <a href="//wa.me/<%= profile.contact%>"><i class="fa-brands fa-whatsapp whatsapp"></i></a>
+        <a href = "mailto: <%= user.email%>"><i class="fa-solid fa-envelope email"></i></a>
+        <a href="tel:0<%= profile.contact%>"><i class="fa-solid fa-phone icon call"></i></a>
     </div>
+   <div class="contact-text">
+    <small>whatsapp</small>
+    <small>Email</small>
+    <small>Tel</small>
+   </div>
     
-    
+    </div>
     <hr>
 <div class="profile">
     <div class="user-gallery">
