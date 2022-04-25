@@ -16,10 +16,10 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #121212; 
+    background-color: #040406; 
 }
 nav {
-    background-color: #1c1a1a;
+    background-color: #040406;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,9 +41,16 @@ nav {
     color: rgb(255, 0, 0);
     padding: 10px;
     border-radius: 20px;
-    transition: 0.5s;
+    transition: 0.7s;
     border-bottom: 1px solid #ffffff;
     border-top: 1px solid #ffffff;
+    animation: pulsate 0.7s ease-in-out;
+}
+@keyframes pulsate{
+    0%{
+        box-shadow: 0 0 8px #ff0101, 
+        0 0 8px #ffffff;
+    }
 }
 .logo {
     margin-top: 10px;
@@ -76,7 +83,7 @@ main{
     height: 70vh;
 }
 .footer {
-    background-color: #000000;
+    background-color: #111111;
     border-top: 1px solid rgb(255, 0, 0);
     height: 23vh;
     display: flex;
@@ -290,6 +297,7 @@ form {
     
 }
 #talents .single-talent {
+    overflow:hidden;
     width: 350px; 
     display: inline-block;
     background-color:#e9e1e1 ;
@@ -297,12 +305,27 @@ form {
     margin: 30px; 
     padding: 10px;
     height: 470px;
+    transition: transform  200ms;
 }
 #talents .single-talent:hover{
     background-color: rgb(189, 189, 189);
     box-shadow: 3px 3px 3px #db0505;
-    transition: 0.2s;
+    transition: transform 1s;
     border: 1px solid red;
+    transform: scale(1.15);
+}
+#talents .single-talent > a img {
+    width:170px;
+    height: 170px; 
+    border-radius: 600px; 
+    object-fit: cover; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 25%;
+}
+#talents .single-talent > a img:hover{
+    transform: scale(1.10);
+    transition: transform  300ms;
 }
 #talents .single-talent a{
     text-decoration: none;
@@ -327,6 +350,43 @@ form {
 #talents .single-talent a button:hover{
     background-color: #4b0a0a;
     box-shadow:2px 2px 2px #8d0e0e;
+}
+.bio .contact {
+    display: flex;
+    justify-content: center;
+}
+.bio .contact-text {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 75vh;
+    left: 50vw;
+    margin-top: 0;
+    margin: 10px;
+}
+.bio .whatsapp {
+    color: green;
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
+    margin-top: 10px;
+    animation: first_color 0.5s ease-in-out infinite alternate;
+}
+.bio .email {
+    color: rgb(205, 192, 192);
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
+    margin-top: 10px;
+    animation: first_color 0.5s ease-in-out infinite alternate;
+}
+.bio .call {
+    color: blue;
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
+    margin-top: 10px;
+    animation: first_color 0.5s ease-in-out infinite alternate;
 }
 
 @media screen  and (max-width:600px) {
