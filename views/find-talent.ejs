@@ -2,13 +2,17 @@
 <%- include('partials/nav') %>
 
 <div id="talents">
-    <%talents.forEach(talent=>{%>
+    <%userProfiles.forEach(userProfile=>{%>
         <div class="single-talent" >
-            <h4 style="text-align: center;"><%=talent.username%></h4>
-            <h6 style="text-align: center;"><%=talent.email%></h6>
-            <p><%= profile.bio%></p>
-            <a  href="/user/<%=talent.id%>">
-                <button>HIRE <%=talent.username.split(' ')[0].toUpperCase()%> </button>
+            <h3 class="user"><%=userProfile.username%></h3>
+            <img style="width:150px; height: 150px; border-radius: 600px; object-fit: cover; margin-top: 7px; margin-left: 95px;" src="<%= userProfile.profilePic%>" alt="">
+            <!-- <h4  class="user"><%=userProfile.email%></h4><br> -->
+            <h4 class="user">Service: <%= userProfile.service%></h4>
+            <h4 class="user">Based in:<%= userProfile.location%></h4>
+            <p class="user-bio"><%= userProfile.bio%></p> <br>
+            <p class="user">Pricing: <%= userProfile.price%></p>
+            <a  href="/user/<%=userProfile.id%>">
+                <button>HIRE <%=userProfile.username.split(' ')[0].toUpperCase()%> </button>
             </a>
         </div>
     <%})%>

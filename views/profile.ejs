@@ -9,6 +9,8 @@
     <p><%= profile.service%></p>
     <div><%= profile.bio%></div>
     <span>Pricing: <%= profile.price%></span>
+    <a href="//wa.me/<%= profile.contact%>">whatsapp</a>
+    <a href="//eddboy188@gmail.com">email</a>
   
     
     
@@ -23,12 +25,14 @@
     
 </div>
 <hr>
-<div class="user-images">
-    <%images.forEach(image=>{%> 
-        <img style="width: 100%;" src="<%=image.image%>" alt="">
-        <p style="color: white;"><%=image.description%></p>
-        
-    <%})%>
+<div class="profile">
+    <div class="user-gallery">
+        <%images.forEach(image=>{%> 
+            <img style="width: 100%;" src="<%=image.image%>" alt="">
+            <p style="color: white; text-align: center;"><%=image.description%></p>
+            
+        <%})%>
+    </div>
 </div>
 
 
