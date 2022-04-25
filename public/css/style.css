@@ -292,14 +292,28 @@ form {
 #talents .single-talent {
     width: 350px; 
     display: inline-block;
-    background-color: rgb(197, 197, 197);
+    background-color:#e9e1e1 ;
     border-radius: 10px;
     margin: 30px; 
     padding: 10px;
-    height: 400px;
+    height: 470px;
+}
+#talents .single-talent:hover{
+    background-color: rgb(189, 189, 189);
+    box-shadow: 3px 3px 3px #db0505;
+    transition: 0.2s;
+    border: 1px solid red;
 }
 #talents .single-talent a{
     text-decoration: none;
+}
+#talents .user{
+    text-align: center;
+    font-family:Exo;
+}
+#talents .user-bio {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
 }
 #talents .single-talent a button {
     margin-left: 115px;
@@ -308,7 +322,11 @@ form {
     color: white;
     background-color: red;
     border: none;
-    margin-top: 300px;
+    margin-top: 60px;
+}
+#talents .single-talent a button:hover{
+    background-color: #4b0a0a;
+    box-shadow:2px 2px 2px #8d0e0e;
 }
 
 @media screen  and (max-width:600px) {
