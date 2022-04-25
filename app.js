@@ -66,7 +66,7 @@ app.post('/signup', (req, res) => {
                             'INSERT INTO users (email, username, password) VALUES (?, ?, ?)',
                             [email, username, hash],
                             (error, results) => {
-                                res.redirect('/edit-profile');
+                                res.redirect(`/input-profile?email=${email}`);
                             }
                         )
                     } else {
@@ -175,27 +175,22 @@ app.get('/profile/:id', (req, res) => {
    
 });   
 app.get('/find-talent/', (req, res) => {
-    let userID = parseInt(req.query.userID)
-    console.log(userID)
-    connection.query(
-        `SELECT * FROM users`,
-        (error, talents)=>{
-            connection.query(
-                `SELECT * FROM profile WHERE userID = ?`,
-                [userID],
-                console.log(req.query.id),
-                (error, profile) => {
-                    if(error) {
-                        console.log(error)
-                    } else {
-                        res.render('find-talent.ejs', {talents:talents, profile:profile})
-                        console.log(profile)
-                        // console.log(talents)
-                    }
+        connection.query(
+             `SELECT * FROM profile JOIN users ON users.id = profile.userID`,
+            // [userID],
+            console.log(req.query.id),
+            (error, userProfiles) => {
+                if(error) {
+                    console.log(error)
+                } else {
+                    res.render('find-talent.ejs', {userProfiles:userProfiles})
+                    // console.log(userProfiles)
+                    // console.log(talents)
                 }
+            }
             )
-        }
-    )
+        
+    
     
 });
 app.get('/user/:id', (req, res) => {
@@ -224,16 +219,45 @@ app.get('/user/:id', (req, res) => {
     ) 
 })
 })    
+app.get('/input-profile', (req, res)=>{
+        res.render('input-profile.ejs', {email: req.query.email})
+})
+app.post('/input-profile', upload.single('profile-pic'),  (req, res)=>{
+    console.log(req.query.email)
+    connection.query(
+        `SELECT * FROM users WHERE email = '${req.query.email}'`,
+        
+        (error, users)=> {
+            console.log(users)
+            connection.query(
+                `INSERT INTO profile (userID, profilePic, bio, price, contact, service, location) VALUES(${users[0].id}, '/images/uploads/${req.file.filename}', ?, ?, ?, ?, ?)`,
+                [req.body.bio, req.body.price, req.body.contact, req.body.service, req.body.location],
+                (error, results) => {
+                    if(error) {
+                     console.log(error)
+                    } else {
+                     res.redirect(`/login`)
+                    }
+                }
+            )       
+       }
+    )   
+})
 app.get('/edit-profile', (req, res)=>{
-    res.render('edit-profile.ejs')
+    if(res.locals.isLoggedIn) {
+        res.render('edit-profile.ejs')
+    } else {
+        res.redirect('/login')   
+    }
 })
 app.post('/edit-profile', upload.single('profile-pic'),  (req, res)=>{
     connection.query(
         `SELECT * FROM users WHERE id = ${parseInt(req.params.id)}`,
         (error, users)=> {
             connection.query(
-                `INSERT INTO profile (userID, profilePic, bio, price, contact, service) VALUES(${req.session.userID}, '/images/uploads/${req.file.filename}', ?, ?, ?, ?)`,
-                [req.body.bio, req.body.price, req.body.contact, req.body.service],
+                `UPDATE profile SET userID = ${req.session.userID}, profilePic = '/images/uploads/${req.file.filename}' , bio = ?, price = ?, contact = ?, service= ? WHERE userID = ${req.session.userID}`,
+                // console.log(req.session.userID),
+                [req.body.bio, req.body.price, req.body.contact, req.body.service, req.body.location],
                 (error, results) => {
                     if(error) {
                      console.log(error)
