@@ -178,7 +178,7 @@ app.get('/find-talent/', (req, res) => {
         connection.query(
              `SELECT * FROM profile JOIN users ON users.id = profile.userID`,
             // [userID],
-            console.log(req.query.id),
+            // console.log(req.query.id),
             (error, userProfiles) => {
                 if(error) {
                     console.log(error)
@@ -241,6 +241,7 @@ app.post('/input-profile', upload.single('profile-pic'),  (req, res)=>{
                 }
             )       
        }
+       
     )   
 })
 app.get('/edit-profile', (req, res)=>{
@@ -251,13 +252,17 @@ app.get('/edit-profile', (req, res)=>{
     }
 })
 app.post('/edit-profile', upload.single('profile-pic'),  (req, res)=>{
+    let bio = req.body.bio,
+        price= req.body.price,
+        contact = req.body.contact,
+        service =  req.body.service,
+        location = req.body.location;
     connection.query(
         `SELECT * FROM users WHERE id = ${parseInt(req.params.id)}`,
         (error, users)=> {
             connection.query(
                 `UPDATE profile SET userID = ${req.session.userID}, profilePic = '/images/uploads/${req.file.filename}' , bio = ?, price = ?, contact = ?, service= ? WHERE userID = ${req.session.userID}`,
-                // console.log(req.session.userID),
-                [req.body.bio, req.body.price, req.body.contact, req.body.service, req.body.location],
+                [bio, price, contact, service, location],
                 (error, results) => {
                     if(error) {
                      console.log(error)
@@ -269,6 +274,16 @@ app.post('/edit-profile', upload.single('profile-pic'),  (req, res)=>{
        }
     )   
 })
+app.post('/delete-pic/:id', (req, res) => {
+    console.log(req.params.id)
+    connection.query(
+        `DELETE FROM images WHERE id = ?`,
+        [req.params.id],
+        (error, results) => {
+            res.redirect(`/profile/${req.session.userID}`);
+        }     
+    )
+});
 
 app.get('/add-images', (req,res)=>{
     if(res.locals.isLoggedIn){
