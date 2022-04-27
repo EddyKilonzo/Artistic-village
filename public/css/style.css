@@ -87,8 +87,7 @@ main{
     border-top: 1px solid rgb(255, 0, 0);
     height: 23vh;
     display: flex;
-    position:sticky;
-    margin-top: 20%;
+    margin-top: 10%;
     justify-content: space-between;
     align-items: center;
     font-family: Ubuntu-light;
@@ -250,32 +249,6 @@ form {
     font-family: Exo;
     margin-bottom: 20px;
 }
-.profile {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    height: 40%;
-    width: 40%;
-    color: #fff;
-    font-family: Exo;
-}
-.user-images{
-    width: 400px;
-    height: auto;
-    color: #fff;
-    font-family: Exo;
-    display: flex;
-}
-.user-images .description {
-    color: rgb(227, 24, 24);
-}
-.user-images img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    margin-top: 20px;
-    padding: 10px;
-}
 .not-found {
     margin-top: 100px;
     display: flex;
@@ -288,13 +261,11 @@ form {
     font-size: 30px;
 }
 .not-found img {
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 50%;
 }
 #talents  {
-    display: inline-block;
-    margin: 30px 50px;
-    
+    margin: 30px 50px;  
 }
 #talents .single-talent {
     overflow:hidden;
@@ -302,17 +273,17 @@ form {
     display: inline-block;
     background-color:#e9e1e1 ;
     border-radius: 10px;
-    margin: 30px; 
-    padding: 10px;
-    height: 470px;
-    transition: transform  200ms;
+    margin: 20px; 
+    padding: 8px;
+    height: 490px;
+    transition: transform  250ms;
 }
 #talents .single-talent:hover{
     background-color: rgb(189, 189, 189);
     box-shadow: 3px 3px 3px #db0505;
-    transition: transform 1s;
+    transition: transform 800ms;
     border: 1px solid red;
-    transform: scale(1.15);
+    transform: scale(1.11);
 }
 #talents .single-talent > a img {
     width:170px;
@@ -336,7 +307,8 @@ form {
 }
 #talents .user-bio {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
+    padding: 15px;
 }
 #talents .single-talent a button {
     margin-left: 115px;
@@ -351,6 +323,13 @@ form {
     background-color: #4b0a0a;
     box-shadow:2px 2px 2px #8d0e0e;
 }
+.bio img {
+    width:250px;
+    height: 250px;
+    border-radius:600px;
+    object-fit: cover;
+    margin-top: 10px; 
+}
 .bio .contact {
     display: flex;
     justify-content: center;
@@ -364,13 +343,51 @@ form {
     margin-top: 0;
     margin: 10px;
 }
+.profile .user-gallery  {
+    display: inline-block;
+}
+.profile .user-gallery img {
+    width: 650px;
+    height: 500px;
+    border-radius: 10px;
+    margin: 10px;
+    /* object-fit:scale-down;     */
+}
+.profile .user-gallery p {
+    color: white;
+    font-family: Exo;
+    text-align: center;
+}
+#delete-form {
+    display: inline;
+    width: 130px;
+    padding: 6px;
+    margin: 14px;
+    background-color: transparent;
+    box-shadow: none;
+}
+.btn-delete {
+    float: right;
+    color: #fff;
+    background-color: #ff0000;
+    font-family: Exo;
+    font-size: 18px;
+    padding: 4px 6px;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 100px;
+}
+.btn-delete:hover {
+    background-color:  #880b0b;
+    border: none;
+}
 .bio .whatsapp {
     color: green;
     width: 100px;
     height: 100px;
     font-size: 30px;
     margin-top: 10px;
-    animation: first_color 0.5s ease-in-out infinite alternate;
 }
 .bio .email {
     color: rgb(205, 192, 192);
@@ -378,15 +395,14 @@ form {
     height: 100px;
     font-size: 30px;
     margin-top: 10px;
-    animation: first_color 0.5s ease-in-out infinite alternate;
 }
 .bio .call {
     color: blue;
-    width: 100px;
+    width: 40px;
     height: 100px;
     font-size: 30px;
     margin-top: 10px;
-    animation: first_color 0.5s ease-in-out infinite alternate;
+
 }
 
 @media screen  and (max-width:600px) {
