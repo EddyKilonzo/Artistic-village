@@ -1,0 +1,10 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+    <div style="margin-top: 100px;" class="access-point">
+        <form action="/edit-profile" method="post" enctype="multipart/form-data">
+            <label for="">Choose your profile pic:</label>
+            <input type="file" name="profile-pic" id="">
+            <button style="margin-top: 10px;" class="btn" type="submit">Submit</button>
+        </form>    
+    </div>
