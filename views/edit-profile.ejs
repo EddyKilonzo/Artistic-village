@@ -4,17 +4,17 @@
     <div style="margin-top: 100px;" class="access-point">
         <form action="/edit-profile" method="post" enctype="multipart/form-data">
             <label for="">Choose your profile pic:</label>
-            <input type="file" name="profile-pic" id="">
+            <input type="file" name="profile-pic" id=""  value="<%= profile.profilePic %>">
             <label for="">services providing:</label>
-            <input style="height: 30px;" type="text" name="service" id="">
+            <input style="height: 30px;" type="text" name="service" id="" value="<%= profile.service %>">
             <label for="">BIO:</label>
-            <input style="height: 30px;" type="text" name="bio" id="">
+            <input style="height: 30px;" type="text" name="bio" id="" value="<%= profile.bio %>">
             <label for="">Pricing:</label>
-            <input style="height: 30px;" type="number" name="price" id="">
+            <input style="height: 30px;" type="number" name="price" id="" value="<%= profile.price %>">
             <label for="">contact: </label>
-            <input style="height: 30px;" type="tel" name="contact" id="" maxlength="10">
+            <input style="height: 30px;" type="tel" name="contact" id="" maxlength="10" value="<%= profile.contact %>">
             <label for="">Based in:</label>
-            <input style="height: 30px;"type="text" name="location" id="">
+            <input style="height: 30px;"type="text" name="location" id="" value="<%= profile.location %>">
             <button style="margin-top: 10px;" class="btn" type="submit">Submit</button>
         </form>    
     </div>
