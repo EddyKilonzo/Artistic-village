@@ -246,7 +246,17 @@ app.post('/input-profile', upload.single('profile-pic'),  (req, res)=>{
 })
 app.get('/edit-profile', (req, res)=>{
     if(res.locals.isLoggedIn) {
-        res.render('edit-profile.ejs')
+        connection.query(
+            `SELECT * FROM profile WHERE userID = ${req.session.userID}`,
+            (error, profile) => {
+                if(error) {
+                    console.log(error)
+                } else {
+                    res.render('edit-profile.ejs', {profile:profile[0]})
+                    // console.log(profile)
+                }
+            }
+        )
     } else {
         res.redirect('/login')   
     }
@@ -271,7 +281,7 @@ app.post('/edit-profile', upload.single('profile-pic'),  (req, res)=>{
                     }
                 }
             )       
-       }
+       } 
     )   
 })
 app.post('/delete-pic/:id', (req, res) => {
