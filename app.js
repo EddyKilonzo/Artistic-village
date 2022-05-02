@@ -114,7 +114,6 @@ app.post('/login', (req, res) => {
             if(results.length > 0) {
                 bcrypt.compare(password, results[0].password, (error, isEqual) => {
                     if(isEqual) {
-                       
                         req.session.userID = results[0].id;
                         req.session.username = results[0].username;
                         res.redirect('/profile/:id');
@@ -169,7 +168,7 @@ app.get('/profile/:id', (req, res) => {
             }
         )
     } else {
-        console.log('not logged in or id do not match')
+        // console.log('not logged in or id do not match')
         res.redirect('/find-talent')
     }
    
