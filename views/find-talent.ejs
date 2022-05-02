@@ -1,6 +1,8 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
 
+
+
 <div id="talents">
     
         <%userProfiles.forEach(userProfile=>{%>
@@ -9,10 +11,10 @@
                 </a>
                 <a href="/user/<%=userProfile.id%>"><img  src="<%= userProfile.profilePic%>" alt="">
                 </a>
-                <h4 class="user">Service: <%= userProfile.service%></h4>
-                <h4 class="user">Based in <%= userProfile.location%></h4>
-                <p class="user-bio"><%= userProfile.bio%></p> <br>
-                <p class="user">Pricing: <%= userProfile.price%></p>
+                <h4 class="user"><%= userProfile.service%></h4>
+                <h4 class="user"><i class="fa-solid fa-location-dot"></i> <%= userProfile.location%></h4>
+                <p class="user-bio"><%= userProfile.bio%></p> 
+                <p class="user">Pricing : ksh<%= userProfile.price%></p>
                 
                 <a  href="/user/<%=userProfile.id%>">
                     <button>HIRE <%=userProfile.username.split(' ')[0].toUpperCase()%> </button>

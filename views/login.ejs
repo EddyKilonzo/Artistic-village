@@ -2,7 +2,7 @@
 <%- include('partials/nav') %>
 
 
-    <main class=" access-point">
+    <main class=" access-point" style="height: 70vh;">
         <form action="/login" method="post">
             <p class="form-text">Log In</p>
             <% if(error) { %>
@@ -19,3 +19,4 @@
             <p>Don't have an account? <a href="/signup">Sign Up</a> </p>
         </form>
     </main>
+    <%- include('partials/footer') %>

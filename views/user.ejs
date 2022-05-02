@@ -1,27 +1,40 @@
 <%- include('partials/header') %>
-<%- include('partials/nav') %>
+<!-- <%- include('partials/nav') %> -->
 
 
-    
-    <div class="bio">
-        <h1 style="color: white; text-align: center;"><%= user.username%></h1>
-        <img src="<%= profile.profilePic%>" alt="">
-        <p>Service <%= profile.service%></p>
-        <!-- <p style="color: white; text-align: center;"><%= user.email%></p> -->
-        <p>Based in <%= profile.location%></p>
-        <p><%= profile.bio%></p>
-        <span>Pricing: <%= profile.price%></span>
-        <p>Contact Via:</p>
-            <div class="contact">
-                <a href="//wa.me/<%= profile.contact%>"><i class="fa-brands fa-whatsapp whatsapp"></i></a>
-                <a href = "mailto: <%= user.email%>"><i class="fa-solid fa-envelope email"></i></a>
-                <a href="tel:0<%= profile.contact%>"><i class="fa-solid fa-phone icon call"></i></a>
-            </div>
-    
+<nav id="nav2">
+    <div class="up" >
+        <h1 class="logo"><a href="/">ARTISTIC <span>VILLAGE</span></a></h1>
+        <small class="text">ONE STORY AT A TIME</small>
     </div>
-    <hr>
-
+    <ul>
+        <li class="nav2-link"><a href="/find-talent">Find-Talent</a></li> 
+        <% if(locals.isLoggedIn) { %>
+            <li class="nav2-link"><a href="/profile/<%= locals.userID %>">Profile</a></li>
+            <li class="nav2-link"><a href="/logout">Logout</a></li>
+        <% } else {%>
+            <li class="nav2-link"><a href="/login">👤 My Account</a></li>
+        <% } %>
+    </ul>
+    
+</nav>
+<div id="grid">
+    <div class="bio">
+        <h1><%= user.username %></h1>
+        <img  src="<%= profile.profilePic%>" alt="">
+        <p style="margin-top: 5px;"><%= profile.service%></p>
+        <p class="user" style="margin-top: 5px;"><i class="fa-solid fa-location-dot"></i> <%= profile.location%></p>
+        <div style="margin-top: 5px;"><%= profile.bio%></div>
+        <div style="margin-top: 5px;">Pricing: <%= profile.price%></div>
+        <p>Contact Via:</p>
+        <div class="contact" style="margin-top: 10px;" >
+            <a href="//wa.me/<%= profile.contact%>"><i class="fa-brands fa-whatsapp whatsapp"></i></a>
+            <a href = "mailto: <%= user.email%>"><i class="fa-solid fa-envelope email"></i></a>
+            <a href="tel:0<%= profile.contact%>"><i class="fa-solid fa-phone icon call"></i></a>
+        </div>
+    </div>
     <div class="profile">
+        <h5>Previous Projects</h5>
         <%images.forEach(image=>{%>
             <div class="user-gallery">
                 <img src="<%=image.image%>" alt="">
@@ -29,6 +42,7 @@
             </div>
         <%})%>
     </div>
+</div>
 
 
 
