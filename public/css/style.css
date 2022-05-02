@@ -1,5 +1,5 @@
 @font-face {
-    font-family:Ubuntu-Light ;
+    font-family:Ubuntu-Light;
     src: url(Ubuntu-Light.ttf);
 }
 @font-face {
@@ -16,22 +16,27 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #040406; 
+    background-color: #13131a; 
 }
-nav {
-    background-color: #040406;
+header {
+    background-color: #e9e1e1;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #ffffff ;
+    letter-spacing: 1px;
+    font-weight: 400;
     font-family:Ubuntu-Light;
     height: 15vh;
+    z-index: 1;
+    position: sticky;
+    top: 0;
 }
+
 .nav-link {
     display: inline;
 }
 .nav-link a {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     font-family: Exo;
     margin-right: 20px;
@@ -42,45 +47,170 @@ nav {
     padding: 10px;
     border-radius: 20px;
     transition: 0.7s;
-    border-bottom: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    animation: pulsate 0.7s ease-in-out;
+    border-bottom: 2px solid #000000;
+    border-top: 2px solid #000000;
+    animation: pulsate 1s ease-in-out;
 }
 @keyframes pulsate{
     0%{
-        box-shadow: 0 0 8px #ff0101, 
-        0 0 8px #ffffff;
+        box-shadow: 0 0 15px #750000, 
+        0  0 15px #000000, 
     }
 }
+
 .logo {
-    margin-top: 10px;
-    font-family:Exo;
-    color: #ffffff;
+    margin-top: 10px;;
     margin-left: 40px;
 }
 .logo span {
     color: rgb(255, 0, 0);
     font-family: Exo;
 }
-nav .text {
+.up .text {
     font-family: kai;
     margin-left: 60px;
     margin-top: 0;
 }
-nav .logo a {
-    color: #fff;
+.up .logo a {
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
-.home-pics {
-    width: 98.5vw;
-    height: 84.5vh;
-    object-position: center;
-    display: block;
-    object-fit:cover;
-    
+#nav2 {
+    background-color: #0e0e13;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-family:Ubuntu-Light;
+    height: 10vh;
+    position: sticky;
+    top: 0%;
+    z-index: 1;
 }
-main{
-    height: 70vh;
+.nav2-link {
+    display: inline;
+}
+.nav2-link a {
+    color: #f7f1f1;
+    text-decoration: none;
+    font-family: Exo;
+    margin-right: 20px;
+    font-size: 24px;
+}
+.nav2-link a:hover {
+    color: rgb(255, 0, 0);
+    padding: 10px;
+    border-radius: 20px;
+    transition: 0.7s;
+    border-bottom:2px solid #f9f9f9;
+    border-top: 2px solid #fbf6f6;
+    animation: pulsate 1s ease-in-out;
+}
+@keyframes pulsate{
+    0%{
+        box-shadow: 0px 0px 15px #470000, 
+        1px 1px 15px #ffffff;
+    }
+}
+.logo {
+    margin-top: 10px;;
+    margin-left: 40px;
+}
+.logo span {
+    color: rgb(255, 0, 0);
+    font-family: Exo;
+}
+#nav2 .text {
+    color: rgb(255, 255, 255);
+    font-family: kai;
+    margin-left: 60px;
+    margin-top: 0;
+}
+#nav2 .logo a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+.slideshow {
+    width: 100%;
+    height: 97vh;
+    position: relative;
+    overflow: hidden;
+}
+.slideshow-item {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    opacity: 0;
+    animation: cycleImages 41s infinite;
+}
+
+.slideshow-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    animation: zoom 41s infinite;
+}
+.slideshow-item:nth-child(1),
+.slideshow-item:nth-child(1) img {
+    animation-delay: 0s;
+}
+.slideshow-item:nth-child(2),
+.slideshow-item:nth-child(2) img  {
+    animation-delay: 10s;
+}
+.slideshow-item:nth-child(3),
+.slideshow-item:nth-child(3) img  {
+    animation-delay: 20s;
+}
+.slideshow-item:nth-child(4),
+.slideshow-item:nth-child(4) img  {
+    animation-delay: 30s;
+}
+.slideshow-item-text {
+    max-width: 50%;
+    position: absolute;
+    top: 8%;
+    left: 25%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    background-color: rgba(10, 7, 21, 0.5);
+    color: #fff;
+    padding: 10px 10px;
+    font-family: Exo;
+}
+.slideshow-item-text h5 {
+    font-size: 24px;
+    font-family: Exo;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+
+}
+.slideshow-item-text p {
+    font-size: 13px;
+    font-family: Exo;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-weight: 400;
+}
+@keyframes cycleImages {
+    20%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+        
+    }
+}
+@keyframes zoom {
+    100%{
+        transform: scale(1.3);
+        
+    }
+    
 }
 .footer {
     background-color: #111111;
@@ -92,6 +222,7 @@ main{
     align-items: center;
     font-family: Ubuntu-light;
     color: #e9e1e1;
+    z-index: 1;
 }
 .footer .left {
    margin-left: 10%;
@@ -99,20 +230,6 @@ main{
 }
 #logo {
     padding: 5px;
-}
-#arrow{
-    color: #ffffff;
-    position: fixed;
-    background-color: rgb(255, 0, 0);
-    scroll-behavior:smooth;
-    width: 40px;
-    height: 40px;
-    bottom: 40px;
-    right: 50px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    text-decoration: none;
 }
 #arrow:hover {
     background-color: #4b0a0a;
@@ -159,7 +276,7 @@ form {
     box-shadow: 3px 3px 3px #2a2828;
 }
 .error-message {
-    color: #ff0000;
+    color: #910000;
     text-align: center;
     margin-bottom: 4px;
 }
@@ -192,57 +309,6 @@ form {
     text-decoration: underline;
     color:black;
 }
-#background .carousel {
-    width: 90vw;
-    position: relative;
-}
-#background .carousel p {
-    top: 10vh;
-    opacity: 1;
-    left: 40vw;
-    font-size: 2rem;
-    color: #fff;
-    font-family: Exo;
-    opacity: 1;
-}
-
-#slide{
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-}
-
-#slide[data-active] {
-    opacity: 0.9;
-}
-.carousel button {
-    position: absolute;
-    z-index: 2;
-    background: none;
-    border: none;
-    font-size: 3rem;
-    top: 35vh;
-    transform: translateY(-50%);
-    color: rgb(255, 0, 0);
-    background-color: rgb(0, 0, 0, .1);
-    cursor: pointer;
-    padding: 3px;
-    border-radius: 6rem;
-}
-.carousel button:hover {
-    color: #fff;
-    background-color: rgb(0, 0, 0, .3);
-    outline: 1px solid rgb(115, 6, 6);
-}
-.carousel-button.prev {
-    left: 105%;
-}
-.carousel-button.next {
-    right: 95%;
-}
-.carousel > ul {
-    list-style: none;
-}
 .bio {
     text-align: center;
     color: #fff;
@@ -265,31 +331,32 @@ form {
     height: 50%;
 }
 #talents  {
-    margin: 30px 50px;  
+    margin-left:100px;
+    margin-right: 10px;
+    margin-top: 30px;
 }
 #talents .single-talent {
     overflow:hidden;
     width: 350px; 
     display: inline-block;
-    background-color:#e9e1e1 ;
+    background-color:#e9e1e1;
     border-radius: 10px;
-    margin: 20px; 
-    padding: 8px;
-    height: 490px;
-    transition: transform  250ms;
+    margin: 25px; 
+    height: 460px;
+    transition: transform  400ms ease-in-out;
+    cursor: pointer;
 }
 #talents .single-talent:hover{
     background-color: rgb(189, 189, 189);
-    box-shadow: 3px 3px 3px #db0505;
-    transition: transform 800ms;
-    border: 1px solid red;
-    transform: scale(1.11);
+    box-shadow: 2px 2px 2px #db0505;
+    transition: transform 600ms;
+    transform: scale(1.08);
 }
 #talents .single-talent > a img {
     width:170px;
     height: 170px; 
     border-radius: 600px; 
-    object-fit: cover; 
+    object-fit:cover; 
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 25%;
@@ -306,22 +373,25 @@ form {
     font-family:Exo;
 }
 #talents .user-bio {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 13px;
-    padding: 15px;
+    font-family:Ubuntu-Light;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 #talents .single-talent a button {
-    margin-left: 115px;
+    margin-left: 125px;
     border-radius: 10px;
     padding: 8px;
     color: white;
     background-color: red;
     border: none;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 #talents .single-talent a button:hover{
     background-color: #4b0a0a;
     box-shadow:2px 2px 2px #8d0e0e;
+    transition: 200ms;
 }
 .bio img {
     width:250px;
@@ -337,13 +407,7 @@ form {
 .profile .user-gallery  {
     display: inline-block;
 }
-.profile .user-gallery img {
-    width: 630px;
-    height: 550px;
-    margin: 5px;
-    margin-left: 20px;
-    object-fit:contain;    
-}
+
 .profile .user-gallery p {
     color: white;
     font-family: Exo;
@@ -374,46 +438,122 @@ form {
     background-color:  #880b0b;
     border: none;
 }
-.bio .whatsapp {
-    color: green;
-    width: 60px;
-    /* height: 100px; */
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+}
+#grid .bio {
+    width: 330px;
+    background-color: #0f0f14; 
+    height: 550px;
+    margin-left: 20px;
+    position: sticky;
+    top: 14vh;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+}
+#grid .profile .user-gallery img {
+    width: 730px;
+    height: 550px;
+    margin: 5px;
+    object-fit:contain;
+    border-radius: 10px;    
+}
+#grid .profile .user-gallery p {
+    max-width: 80%;
+    text-align: center;
+    margin-left: 50px;
+    word-spacing: 2px;
+}
+#grid .profile h5{
+    text-align: center;
+    color: aliceblue;
     font-size: 30px;
-    margin-top: 10px;
+    font-family: Exo;
+}
+.bio .whatsapp{
+    color: #fff;
+    animation: first_color .7s ease-in-out infinite alternate;
+    font-size: 28px;
+    width: 70px;
 }
 .bio .email {
-    color: rgb(205, 192, 192);
-    width: 90px;
-    /* height: 100px; */
-    font-size: 30px;
-    margin-top: 10px;
+    animation: second_color .7s ease-in-out infinite alternate;
+    color: #fff;
+    font-size: 28px;
+    width: 70px;
 }
 .bio .call {
-    color: blue;
-    width: 40px;
-    height: 100px;
-    font-size: 30px;
-    margin-top: 10px;
-
+    animation: third_color .7s ease-in-out infinite alternate;
+    color: #fff;
+    font-size: 28px;
+    width: 70px;
+    
+}
+@keyframes first_color {
+    0%{
+        text-shadow: 0 0 10px #07a35d,
+        0 0 20px #048f51, 0 0 30px #027969
+    }
+    100%{
+        text-shadow: 0 0 10px #048a4d,
+        0 0 20px #026d3d, 0 0 30px #013b31
+    }
+    
+}
+@keyframes second_color {
+    0%{
+        text-shadow: 0 0 10px #464646,
+        0 0 20px #75747400, 0 0 30px #535252;
+    }
+    100%{
+        text-shadow: 0 0 10px #1f1f1f,
+        0 0 20px #0d0c0c, 0 0 30px #040404;
+    }
+    
+}
+@keyframes third_color {
+    0%{
+        text-shadow: 0 0 10px #255fd3,
+        0 0 20px #114eb1, 0 0 30px #02285e
+    }
+    100%{
+        text-shadow: 0 0 10px #1345a8,
+        0 0 20px #083379, 0 0 30px #000e21
+    }
+    
 }
 .right .links .facebook {
-    color: rgb(0, 0, 255);
+    color: rgb(38, 38, 234);
     font-size: 30px;
     width: 40px;
 }
 .right .links .instagram {
-    color: rgb(182, 25, 11);
+    color: rgb(168, 40, 28);
     font-size: 30px;
     width: 40px;
 }
 .right .links .youtube {
-    color: rgb(206, 9, 9);
+    color: rgba(199, 0, 0, 0.738);
     font-size: 30px;
     width: 40px;
 }
-
-@media screen  and (max-width:600px) {
-
+.right .links .facebook:hover{
+    color: #ffffff;
+    transition: 300ms;
+}
+.right .links .youtube:hover{
+    color: #ffffff;
+    transition: 300ms;
+}
+.right .links .instagram:hover{
+    color: #ffffff;
+    transition: 300ms;
+}
+.grid {
+    display: grid;
+}
+@media screen  and (max-width:670px) {
     .footer {
         font-size: 13px;
         margin-top: 100%;
@@ -432,18 +572,6 @@ form {
         font-weight: bolder;
         margin-bottom: 4px;
     }
-    .service {
-        width: 90%;
-        height: 60%;
-        text-align: center;
-        font-size: 17px;
-        margin: 10px;
-    }
-    #services .pics {
-        border-radius: 5px;
-        width: 90%;
-        height:100%;
-    }
     .nav-link {
         display: none;
     }
@@ -455,8 +583,31 @@ form {
     .logo {
        font-size: 18px;
     }
-   
-    
+    .slideshow-item-text {
+        max-width: 100%;
+        top: initial;
+        bottom: 0;
+        right: 10%;
+        transform: initial;
+        padding: 8px 5px;
+        font-size: 10px;
+    }
+    .slideshow-item-text h5 {
+        font-size: 15px;
+    }
+    #talents .single-talent {
+        overflow:hidden;
+        width: 90%; 
+        display: inline-block;
+        background-color:#e9e1e1 ;
+        border-radius: 10px;
+        height: 460px;
+        transition: transform  300ms ease-in-out;
+    }
+    #talents  {
+        margin-left:50px;
+        margin-right: 10px;
+    }
 }
 
 
