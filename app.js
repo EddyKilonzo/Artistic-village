@@ -197,7 +197,7 @@ app.get('/user/:id', (req, res) => {
         `SELECT * FROM users WHERE id = ${parseInt(req.params.id)}`,
         (error, user) => {
             connection.query(
-            `SELECT * FROM images WHERE imgOwner = ${parseInt(req.params.id)}`,
+            `SELECT * FROM images WHERE imgOwner = ${(req.params.id)}`,
             (error, images)=> {
                 connection.query(
                     `SELECT * FROM profile WHERE userID = ${parseInt(req.params.id)}`,
