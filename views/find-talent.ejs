@@ -1,12 +1,9 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
 
-
-
 <div id="talents">
-    
         <%userProfiles.forEach(userProfile=>{%>
-            <div class="single-talent" >
+            <div class="single-talent">
                 <a style="color: rgb(0, 0, 0);" href="/user/<%=userProfile.id%>"><h3 class="user"><%=userProfile.username%></h3>
                 </a>
                 <a href="/user/<%=userProfile.id%>"><img  src="<%= userProfile.profilePic%>" alt="">

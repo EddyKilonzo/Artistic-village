@@ -1,14 +1,24 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
-<main class="access-point" style="height: 70vh;">
-    <form action="/signup" method="post">
+<main class="access-point" style="height: 85vh;">
+    <form action="/signup" method="post" style="height: 480px;">
         <p class="form-text">Sign Up</p>
         <% if(error) { %>
             <p class="error-message"><%= errorMessage%></p>
+            <label for="">Email:</label>
             <input class="form-input" type="email" name="email" id="" value="<%= email %>">
+            <label for="">Username:</label>
             <input class="form-input" type="text" name="username" id="" value="<%= username %>">
+            <label for="">Password:</label>
             <input class="form-input" type="password" name="password" id="" value="<%= password %>" >
+            <div id="eye-wrapper" onclick="toggle()">
+                <img src="images/eye-open.svg" id="open">
+            </div>
+            <label for="">Confirm Password:</label>
             <input class="form-input" type="password" name="confirmPassword"  id="" value="<%= confirmPassword %>" >
+            <div id="eye-wrapper"  onclick="toggle()">
+                <img src="images/eye-open.svg" id="open">
+            </div>
         <% } else { %>
             <label for="">Email:</label>
             <input class="form-input" type="email" name="email" id=""  required>
@@ -16,8 +26,14 @@
             <input class="form-input" type="text" name="username" id="" required>
             <label for="">Password:</label>
             <input class="form-input" type="password" name="password" id=""  required>
+            <!-- <div id="eye-wrapper" onclick="toggle()">
+                <img src="images/eye-open.svg" id="open">
+            </div> -->
             <label for="">Confirm Password:</label>
-            <input class="form-input" type="password" name="confirmPassword" id="" required>
+            <input class="form-input" type="password" name="confirmPassword" id="" required> <br>
+            <!-- <div id="eye-wrapper" onclick="toggle()">
+                <img src="images/eye-open.svg" id="open">
+            </div> <br> -->
         <% } %>
         
         <input type="submit" value="Sign Up" class="btn">

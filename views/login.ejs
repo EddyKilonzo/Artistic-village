@@ -2,21 +2,33 @@
 <%- include('partials/nav') %>
 
 
-    <main class=" access-point" style="height: 70vh;">
+    <main class=" access-point" style="height: 85vh;">
+        <main class=" access-point" style="height: 70vh;">
         <form action="/login" method="post">
             <p class="form-text">Log In</p>
             <% if(error) { %>
                 <p class="error-message"><%= errorMessage%></p>
+                <label for="">Email:</label>
                 <input class="form-input" type="email" name="email" id="" value="<%= email %>" required>
+                <label for="">Password:</label> 
                 <input class="form-input" type="password" name="password" id="" value="<%= password %>" required>
+                <div id="eye-wrapper" onclick="toggle()">
+                    <img src="images/eye-open.svg" id="open">
+                </div>
             <% } else { %>
                 <label for="">Email:</label>
-                <input class="form-input" type="email" name="email" id="" required>
-                <label for="">Password:</label>
-                <input class="form-input" type="password" name="password" id=""required>
+                <input class="form-input" type="email" name="email" id="" required><br>
+                <label for="">Password:</label> 
+                <input type="password" placeholder="Password" id="password"> <br>
+                    <div id="eye-wrapper" onclick="toggle()">
+                        <img src="images/eye-open.svg" id="open">
+                    </div>
             <% } %>
             <input type="submit" value="Log-in" class="btn">
             <p>Don't have an account? <a href="/signup">Sign Up</a> </p>
         </form>
+    </main>
+        
+        
     </main>
     <%- include('partials/footer') %>

@@ -1,23 +1,26 @@
 <%- include('partials/header') %>
-<nav id="nav2">
-    <div class="up" >
-        <h1 class="logo"><a href="/">ARTISTIC <span>VILLAGE</span></a></h1>
-        <small class="text">ONE STORY AT A TIME</small>
-    </div>
-    <ul>
-        <li class="nav2-link"><a href="/find-talent">Find-Talent</a></li> 
-        <% if(locals.isLoggedIn) { %>
-            <li class="nav2-link"><a href="/profile/<%= locals.userID %>">Profile</a></li>
-            <li class="nav2-link"><a href="/logout">Logout</a></li>
-        <% } else {%>
-            <li class="nav2-link"><a href="/login">👤 My Account</a></li>
-        <% } %>
-    </ul>
+<div class="container">
+    <nav id="nav2">
+        <div class="up" >
+            <h1 class="logo"><a href="/">ARTISTIC <span>VILLAGE</span></a></h1>
+            <small class="text">ONE STORY AT A TIME</small>
+        </div>
+        <ul>
+            <li class="nav2-link"><a href="#about">About Us</a></li>
+            <li class="nav2-link"><a href="/find-talent">Find-Talent</a></li> 
+            <% if(locals.isLoggedIn) { %>
+                <li class="nav2-link"><a href="/profile/<%= locals.userID %>">Profile</a></li>
+                <li class="nav2-link"><a href="/logout">Logout</a></li>
+            <% } else {%>
+                <li class="nav2-link"><a href="/login">Log In</a></li>
+                <li class="nav2-link"><a href="/signup">Sign Up</a></li>
+            <% } %>
+        </ul>
+    </nav>
     
-</nav>
-    
+        
         <div class="slideshow">
-          
+            
             <div class="slideshow-item">
                 <img class="home-pics" src="images/u.jpg" alt="">
                 <div class="slideshow-item-text">
@@ -47,7 +50,97 @@
                 </div>
             </div>
         </div>
+        <section id="about" style="height: 100vh;">
         
+        <div class="wrapper">
+            <div class="background-color">
+                <div id="progress">
+                    <span id="progress-value">&#x1F815;</span>
+                </div>
+                <!-- <div class="bg1"></div>
+                <div class="bg2"></div> -->
+            </div>
+            <div class="about-container">
+                <div class="image-container">
+                    <img src="images/v.jpg" alt="">
+                </div>
+                <div class="text-container">
+                        <h2>About Us</h2>
+                        <p>At Artistic Village, we provide videographers and photographers with a platform where they expand their reach and access a wider market for their work <span id="dots" onclick="read()">...</span> <br>
+                        <span id="more"> <br>
+                            Members participate in frequent photography competitions to gauge their work as well as win amazing prizes to boost their morale, increase their visibility and get their work to a global audience <br>
+                            Quarterly online workshops by highly acclaimed Photographers provide members added skills & knowledge as well as enabling them to strengthen their global network</p>
+                        </span>
+                        <button type="button" id="read" onclick="read()">Read More</button>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials" >
+            
+            <div class="testimonials" style="height: 90vh;">
+                <div class="inner">
+                <h1 style="color: #fff; font-size: 30px; font-family: Exo;">Testimonials</h1>
+                <div class="border"></div>
+        
+                <div class="row">
+                    <div class="col">
+                    <div class="testimonial">
+                        <img src="images/p.jpeg" alt="">
+                        <div class="name">David Macharia</div>
+                        <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        </div>
+                        <p>
+                            "Joining the Village was perhaps my biggest professional leap. Within a few months, I had interacted with over 300 new clients. Right now I have gigs almost every weekend.."
+                        </p>
+                    </div>
+                    </div>
+        
+                    <div class="col">
+                    <div class="testimonial">
+                        <img src="images/p2.jpeg" alt="">
+                        <div class="name">Elizabeth Tuwei</div>
+                        <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        </div>
+                        <p>
+                            "I was introduced to the platform by a colleague. Attending one of their Masterclasses opened my eyes and I developed a very strong network of global friends. Right now am preparing to fly to Spain for further workshops."
+                        </p>
+                    </div>
+                    </div>
+        
+                    <div class="col">
+                    <div class="testimonial">
+                        <img src="images/p3.jpeg" alt="">
+                        <div class="name">Rebecca Linda</div>
+                        <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        </div>
+                        <p>
+                            "Winning a competition facilitated by the platform has enabled me to become a global photographer. My works have been requested by major news networks from all over the world."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+            
+    
+            
+</div>
         
        
 
