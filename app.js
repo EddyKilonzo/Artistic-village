@@ -316,6 +316,9 @@ app.post('/add-image', upload.single('images'), (req, res) => {
         }
     )
 })
+app.get('/developer', (req, res) => {
+    res.render('developer.ejs')
+});
 
 app.get('*', (req, res) => {
     res.render('404.ejs')
