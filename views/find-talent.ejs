@@ -1,9 +1,27 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
 
+<div id="buttons">
+    <button class="button-value active">All</button>
+    <button class="button-value">
+      Weddings
+    </button>
+    <button class="button-value">
+      Photography
+    </button>
+    <button class="button-value">
+      Documentaries
+    </button>
+    <button class="button-value">
+      Music Videos
+    </button>
+  </div>
+</div>
+
+
 <div id="talents">
         <%userProfiles.forEach(userProfile=>{%>
-            <div class="single-talent">
+            <div class="single-talent <%=userProfile.service%> ">
                 <a style="color: rgb(0, 0, 0);" href="/user/<%=userProfile.id%>"><h3 class="user"><%=userProfile.username%></h3>
                 </a>
                 <a href="/user/<%=userProfile.id%>"><img  src="<%= userProfile.profilePic%>" alt="">
@@ -22,5 +40,61 @@
     
    
 </div>
-   
+   <script>
+        let talents = document.querySelectorAll('.single-talent')
+        let buttons = document.querySelectorAll('.button-value')
+
+        buttons.forEach((button) => { 
+            
+            button.addEventListener('click', () => {
+               buttons.forEach((button) => {
+                button.classList.remove("active");
+               })
+                if (button.innerText === 'All') {
+                    button.classList.add("active");
+               talents.forEach((talent) => {
+                talent.style.display = 'inline-block'
+               })
+            } else  if(button.innerText === 'Weddings'){
+                button.classList.add("active");
+                talents.forEach((talent) => {
+                    if(talent.classList.contains('Weddings') ){
+                        talent.style.display = 'inline-block'
+                    } else {
+                        talent.style.display = 'none'
+                    }
+                })
+                
+            } else if(button.innerText === 'Photography') {
+                button.classList.add("active");
+                talents.forEach((talent) => {
+                    if(talent.classList.contains('Photography') ){
+                        talent.style.display = 'inline-block'
+                    } else {
+                        talent.style.display = 'none'
+                    }
+                })
+            } else if(button.innerText === 'Documentaries') {
+                button.classList.add("active");
+                talents.forEach((talent) => {
+                    if(talent.classList.contains('Documentaries') ){
+                        talent.style.display = 'inline-block'
+                    } else {
+                        talent.style.display = 'none'
+                    }
+                })
+            } else {
+                talents.forEach((talent) => {
+                    button.classList.add("active");
+                    if(talent.classList.contains('Music') ){
+                        talent.style.display = 'inline-block'
+                    } else {
+                        talent.style.display = 'none'
+                    }
+                })
+            }
+            })
+           
+        }) 
+   </script>
 <%- include('partials/footer') %>

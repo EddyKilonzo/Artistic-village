@@ -9,9 +9,9 @@
             <% if(error) { %>
                 <p class="error-message"><%= errorMessage%></p>
                 <label for="">Email:</label>
-                <input class="form-input" type="email" name="email" id="" value="<%= email %>" required>
+                <input class="form-input" type="email" name="email" id="" value="<%= email %>">
                 <label for="">Password:</label> 
-                <input class="form-input" type="password" name="password" id="" value="<%= password %>" required>
+                <input class="form-input" type="password" name="password" id="" value="<%= password %>">
                 <div id="eye-wrapper" onclick="toggle()">
                     <img src="images/eye-open.svg" id="open">
                 </div>
@@ -19,7 +19,7 @@
                 <label for="">Email:</label>
                 <input class="form-input" type="email" name="email" id="" required><br>
                 <label for="">Password:</label> 
-                <input type="password" placeholder="Password" id="password"> <br>
+                <input class="form-input" type="password" placeholder="Password" id="password" required> <br>
                     <div id="eye-wrapper" onclick="toggle()">
                         <img src="images/eye-open.svg" id="open">
                     </div>
