@@ -81,7 +81,7 @@ header ul .nav-link {
     text-decoration: none;
 }
 #nav2 {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -316,6 +316,7 @@ footer {
     background-color: #11151e;
     color: #ffffff;
     font-size: 16px;
+    margin-top: 20px;
   }
   footer * {
     font-family: Exo;
@@ -369,7 +370,9 @@ footer {
   ul li a {
     color: #ffffff;
     text-decoration: none;
-    margin-top: 10px;
+  }
+  li a {
+    margin-top: 20px;
   }
   ul li a:hover {
     color: #ff0000;
@@ -465,7 +468,7 @@ form {
 #eye-wrapper {
     position: absolute;
     left: 62%;
-    top: 59%;
+    top: 58.5%;
 }
 .error-message {
     color: #910000;
@@ -538,10 +541,12 @@ form {
     transition: transform  400ms ease-in-out;
     cursor: pointer;
     word-spacing: 3px;
+    box-shadow: 1em 2em 2.5em rgba(0, 0, 0, 4);
+    
 }
 #talents .single-talent:hover{
     background-color: rgb(189, 189, 189);
-    box-shadow: 2px 2px 2px #db0505;
+    box-shadow: 5px 5px 5px rgba(255, 0, 0, 0.5);
     transition: transform 600ms;
     transform: scale(1.08);
 }
@@ -553,7 +558,7 @@ form {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 25%;
-    box-shadow: 0 0 0 4px #d70101;
+    box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.9);
 }
 #talents .single-talent > a img:hover{
     transform: scale(1.10);
@@ -780,10 +785,9 @@ form {
     font-size: 30px;
     color: #000;
   }
-
   .box{
     width: 450px;
-    background: rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 40px;
     text-align: center;
     margin: auto;
@@ -882,7 +886,7 @@ form {
     margin: 26px auto;
   }
   
-  .row{
+  .row2{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -896,7 +900,7 @@ form {
   .testimonial{
     background: #fff;
     padding: 30px;
-    height: 400px;
+    height: 440px;
     border-radius: 10px;
   }
   .testimonial img{
@@ -906,13 +910,23 @@ form {
     object-fit: cover;
     box-shadow: 0 0 0 4px #ff0000;
   }
+  .testimonial img:hover {
+    transform: scale(1.10);
+    transition: transform  300ms ease-in-out;
+  }
+.testimonial p {
+    font-size: 18px;
+    font-family:Ubuntu-Light ;
+    word-spacing: 1px;
+  }
   .name{
     font-size: 20px;
     text-transform: uppercase;
     margin: 20px 0;
+    font-family: Exo;
   }
   .stars{
-    color: #ff0000;
+    color: #da0000;
     margin-bottom: 20px;
   }
   @media screen and (max-width:960px) {
@@ -927,6 +941,23 @@ form {
     flex: 100%;
     max-width: 100%;
   }
+  }
+  .button-value {
+    border: 2px solid #ff0000;
+    padding: 1em 2.0em;
+    border-radius: 3em;
+    font-size: 13px;
+    background-color: transparent;
+    color: #fff;
+    font-family: Exo;
+    cursor: pointer;
+    margin-bottom: 0;
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+  .active {
+    background-color: #ff0000;
+    color: #ffffff;
   }
 @media screen  and (max-width:670px) {
     .footer {
@@ -965,7 +996,7 @@ form {
         right: 10%;
         transform: initial;
         padding: 8px 5px;
-        font-size: 10px;
+        font-size: 15px;
     }
     .slideshow-item-text h5 {
         font-size: 15px;
@@ -978,6 +1009,7 @@ form {
         border-radius: 10px;
         height: 460px;
         transition: transform  300ms ease-in-out;
+        
     }
     #talents  {
         margin-left:50px;
