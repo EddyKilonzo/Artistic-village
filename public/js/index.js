@@ -13,21 +13,6 @@ function read() {
     i=0
   }
 }
-// eye password
-var state = false;
-
-function toggle(){
-    if(state){
-        document.getElementById("password").setAttribute("type","password");
-        document.getElementById("open").style.display = "block";
-        state = false;
-    }
-    else{
-        document.getElementById("password").setAttribute("type","text");
-        document.getElementById("open").style.display = "block";
-        state = true;
-    }
-}
    // scroll to top
 let calcScrollValue = () => {
     let scrollProgress = document.getElementById("progress");
