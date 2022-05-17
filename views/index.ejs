@@ -17,72 +17,127 @@
             <% } %>
         </ul>
     </nav>
-    
+    <style>
+        .slideshow-item-text div {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+        } 
+        .slideshow-item-text div:first-of-type {
+            animation: showup 10s infinite;
+            animation: reveal 10s infinite;
+        }
+        .slideshow-item-text div:last-of-type {
+            width: 0px;
+            animation: reveal 10s infinite;
+        }
+        .slideshow-item-text div:last-of-type p {
+            animation: slidein 10s infinite;
+        }
+        @keyframes showup {
+            0% { opacity: 0; margin-left: -800px;}
+            20% {opacity: 0; margin-left: -800px;}
+            35% {opacity: 1; margin-left: 0px;}
+            100% {opacity: 1; margin-left: 0px;}
+        }
+        @keyframes slidein {
+            0% {margin-left: -800px;}
+            20% {margin-left: -800px;}
+            35% { margin-left: 0px;}
+            100% {margin-left: 0px;}
+        }
+        @keyframes reveal {
+            0% {opacity: 0; width: 0px;}
+            20% {opacity: 0; width: 0px;}
+            30% {width: 100%;}
+            80% {opacity: 1; width: 100%;}
+            100% {opacity: 1; width: 100%;}
+            
+        }
+    </style>
         
         <div class="slideshow">
             
             <div class="slideshow-item">
                 <img class="home-pics" src="images/u.jpg" alt="">
                 <div class="slideshow-item-text">
-                    <h5>Weddings</h5>
-                    <p>Find suitably qualified Photographers and videographers for your big day</p>
+                    <div class="h5">Weddings</div>
+                    <div>
+                        <p>Find suitably qualified Photographers and videographers <br> for your big day</p>
+                    </div>
                 </div>
             </div>
             <div class="slideshow-item">
                 <img class="home-pics" src="images/jak.jpg" alt="">
                 <div class="slideshow-item-text">
-                    <h5>Photography</h5>
-                    <p>Our database of highly professional photographers will meet your needs, be it family, street or conceptual photography</p>
+                    <div class="h5">
+                        Photography
+                    </div>
+                    <div>
+                        <p>Our database of highly professional photographers will meet <br>your needs, be it family, street or conceptual photography</p>
+                    </div>
                 </div>
             </div>
             <div class="slideshow-item">
                 <img class="home-pics" src="images/d.jpg" alt="">
                 <div class="slideshow-item-text">
-                    <h5>Documentaries</h5>
-                    <p>Use our app to find the best storytellers for your documentary project</p>
+                    <div class="h5" style="margin-right: 35px;">
+                        Documentaries
+                    </div>
+                   <div>
+                    <p>Use our app to find the best storytellers for your <br> documentary project</p>
+                   </div>
                 </div>
             </div>
             <div class="slideshow-item">
                 <img class="home-pics" src="images/kal.jpg" alt="">
                 <div class="slideshow-item-text">
-                    <h5>Music Videos</h5>
-                    <p>Planning to shoot a music video? Find some of the industry's best music directors</p>
+                    <div class="h5" style="margin-right: 35px;">
+                        Music Videos
+                    </div>
+                   <div>
+                    <p>Planning to shoot a music video?Find some of the industry's<br> best music directors</p>
+                   </div>
                 </div>
             </div>
         </div>
-        <section id="about" style="height: 100vh;">
+        <div style="background-color: rgb(176, 176, 176);">
+            <section id="about" style="height: 100vh;">
         
-        <div class="wrapper">
-            <div class="background-color">
-                <div id="progress">
-                    <span id="progress-value">&#x1F815;</span>
-                </div>
-                <!-- <div class="bg1"></div>
-                <div class="bg2"></div> -->
-            </div>
-            <div class="about-container">
-                <div class="image-container">
-                    <img src="images/v.jpg" alt="">
-                </div>
-                <div class="text-container">
-                        <h2>About Us</h2>
-                        <p>At Artistic Village, we provide videographers and photographers with a platform where they expand their reach and access a wider market for their work <span id="dots" onclick="read()">...</span> <br>
-                        <span id="more"> <br>
-                            Members participate in frequent photography competitions to gauge their work as well as win amazing prizes to boost their morale, increase their visibility and get their work to a global audience <br>
-                            Quarterly online workshops by highly acclaimed Photographers provide members added skills & knowledge as well as enabling them to strengthen their global network</p>
-                        </span>
-                        <button type="button" id="read" onclick="read()">Read More</button>
-                </div>
-            </div>
-        </section>
+                <div class="wrapper">
+                    <div class="background-color">
+                        <div id="progress">
+                            <span id="progress-value">&#x1F815;</span>
+                        </div>
+                        <!-- <div class="bg1"></div>
+                        <div class="bg2"></div> -->
+                    </div>
+                    <div class="about-container">
+                        <div class="image-container">
+                            <img src="images/v.jpg" alt="">
+                        </div>
+                        <div class="text-container">
+                                <h2>About Us</h2>
+                                <p>At Artistic Village, we provide videographers and photographers with a platform where they expand their reach and access a wider market for their work <span id="dots" onclick="read()">...</span> <br>
+                                <span id="more"> <br>
+                                    Members participate in frequent photography competitions to gauge their work as well as win amazing prizes to boost their morale, increase their visibility and get their work to a global audience <br>
+                                    Quarterly online workshops by highly acclaimed Photographers provide members added skills & knowledge as well as enabling them to strengthen their global network</p>
+                                </span>
+                                <button type="button" id="read" onclick="read()">Read More</button>
+                        </div>
+                    </div>
+                </section>
+        </div>
         <section id="testimonials">
             
-            <div class="testimonials" style="height: 110vh;">
+            <div class="testimonials">
                 <div class="inner">
                 <h1 style="color: #fff; font-size: 30px; font-family: Exo; margin-top: 15px;">Testimonials</h1>
                 <div class="border"></div>
-        
+                    
                 <div class="row2">
+                    <h2 style="color: #fff; font-size: 30px; font-family: Exo; margin-top: 5px; margin-left: 20px;">Talents</h2>
+
                     <div class="col">
                     <div class="testimonial">
                         <img src="images/p.jpeg" alt="">
@@ -117,10 +172,27 @@
                     </div>
                     </div>
         
-                    <div class="col">
+                <div class="col">
+                <div class="testimonial">
+                    <img src="images/p3.jpeg" alt="">
+                    <div class="name">Rebecca Linda</div>
+                    <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    </div>
+                    <p>
+                        "Winning a competition facilitated by the platform has enabled me to become a global photographer. My works have been requested by major news networks from all over the world."
+                    </p>
+                </div>
+                </div>
+                <h2 style="color: #fff; font-size: 30px; font-family: Exo; margin-top: 15px; margin-left: 20px; ">clients</h2>
+                <div class="col">
                     <div class="testimonial">
-                        <img src="images/p3.jpeg" alt="">
-                        <div class="name">Rebecca Linda</div>
+                        <img src="images/s.jpg" alt="">
+                        <div class="name">Mercy  Abayomi</div>
                         <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -132,19 +204,55 @@
                             "Winning a competition facilitated by the platform has enabled me to become a global photographer. My works have been requested by major news networks from all over the world."
                         </p>
                     </div>
-                    </div>
                 </div>
+                    <div class="col">
+                        <div class="testimonial">
+                            <img src="images/l.jpg" alt="">
+                            <div class="name">Claude Macharia</div>
+                            <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            </div>
+                            <p>
+                                "Winning a competition facilitated by the platform has enabled me to become a global photographer. My works have been requested by major news networks from all over the world."
+                            </p>
+                        </div>
+                        </div>
+                        <div class="col">
+                            <div class="testimonial">
+                                <img src="images/r.jpg" alt="">
+                                <div class="name">Karen Lagat</div>
+                                <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                </div>
+                                <p>
+                                    "Winning a competition facilitated by the platform has enabled me to become a global photographer. My works have been requested by major news networks from all over the world."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+            
+    
+        
+          
             
     
             
 </div>
 <style>
     :target{
-        scroll-margin-top: 30px;
-        scroll-margin-bottom: 30px;
+        scroll-margin-top: 25px;
+        scroll-margin-bottom: 25px;
     }
 </style>
         

@@ -12,17 +12,11 @@
                 <input class="form-input" type="email" name="email" id="" value="<%= email %>">
                 <label for="">Password:</label> 
                 <input class="form-input" type="password" name="password" id="" value="<%= password %>">
-                <div id="eye-wrapper" onclick="toggle()">
-                    <img src="images/eye-open.svg" id="open">
-                </div>
             <% } else { %>
                 <label for="">Email:</label>
                 <input class="form-input" type="email" name="email" id="" required><br>
                 <label for="">Password:</label> 
                 <input class="form-input" type="password" placeholder="Password" id="password" required> <br>
-                    <div id="eye-wrapper" onclick="toggle()">
-                        <img src="images/eye-open.svg" id="open">
-                    </div>
             <% } %>
             <input type="submit" value="Log-in" class="btn">
             <p>Don't have an account? <a href="/signup">Sign Up</a> </p>

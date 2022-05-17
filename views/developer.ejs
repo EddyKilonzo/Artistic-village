@@ -1,19 +1,19 @@
-<%- include('partials/header') %>
-<%- include('partials/nav') %>
-<div style="height: 100vh;" class="body">
-    <div class="box">
-        <img src="images/eddy.jpeg" alt="" class="box-img">
-        <h2 style="margin-left: 100px;">
-      Eddy Max Kilonzo</h2>
-      <h5>
-      Web Devloper - Web Designer</h5>
-      <p>
-      A web developer is a programmer who specializes in, or is specifically engaged in, the development of World Wide Web applications, or applications that are run over HTTP from a web server to a web browser.</p>
-      <ul>
-      <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-      <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-      <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-      </ul>
-      </div>
-</div>
+<%- include('partials/header') %> 
+<nav id="nav2">
+  <div class="up" >
+      <h1 class="logo"><a href="/">ARTISTIC <span>VILLAGE</span></a></h1>
+      <small class="text">ONE STORY AT A TIME</small>
+  </div>
+  <ul>
+      <li class="nav2-link"><a href="/find-talent">Find-Talent</a></li> 
+      <% if(locals.isLoggedIn) { %>
+          <li class="nav2-link"><a href="/profile/<%= locals.userID %>">Profile</a></li>
+          <li class="nav2-link"><a href="/logout">Logout</a></li>
+      <% } else {%>
+          <li class="nav2-link"><a href="/signup">Find Work</a></li>
+      <% } %>
+  </ul>
+</nav>
+
+
   <%- include('partials/footer') %>
