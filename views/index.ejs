@@ -101,9 +101,8 @@
                 </div>
             </div>
         </div>
-        <div style="background-color: rgb(176, 176, 176);">
-            <section id="about" style="height: 100vh;">
-        
+        <div>
+            <section id="about">
                 <div class="wrapper">
                     <div class="background-color">
                         <div id="progress">
@@ -201,7 +200,7 @@
                         <i class="far fa-star"></i>
                         </div>
                         <p>
-                            "Winning a competition facilitated by the platform has enabled me to become a global photographer. My works have been requested by major news networks from all over the world."
+                            "I remember my sister's wedding was just a fortnight away yet we had no videographers. A few minutes into the App and I had endless options. Needless to say I got the best deals."
                         </p>
                     </div>
                 </div>
@@ -217,7 +216,7 @@
                             <i class="far fa-star"></i>
                             </div>
                             <p>
-                                "Winning a competition facilitated by the platform has enabled me to become a global photographer. My works have been requested by major news networks from all over the world."
+                                "I got a team to work on my firm's documentary. The end result was absolutely fantastic and am grateful for Artistic Village for the connection."
                             </p>
                         </div>
                         </div>
@@ -233,7 +232,7 @@
                                 <i class="far fa-star"></i>
                                 </div>
                                 <p>
-                                    "Winning a competition facilitated by the platform has enabled me to become a global photographer. My works have been requested by major news networks from all over the world."
+                                    "My music video has received several awards after I got an amazing director from the app. There's nothing by mad talent right here."
                                 </p>
                             </div>
                         </div>
@@ -243,11 +242,102 @@
         </section>
             
     
-        
-          
-            
+        <!-- !-- partial:index.partial.html --> 
+        <div class="inner">
+            <h1 style="color: #fff; font-size: 30px; font-family: Exo; margin-top: 15px; text-align: center;letter-spacing: 3px;">Patners</h1>
+            <div class="border"></div>
+<div class="slider">
+<div class="slide-track">
     
-            
+    <div class="slide">
+        <img src="images/images.png" height="100px" width="200px" alt="" />
+    </div>
+    <div class="slide">
+    <img src="images/km.png" height="100px" width="250px" alt="" />
+    </div>
+    <div class="slide">
+    <img src="images/we.png" height="100px" width="250px" alt="" />
+    </div>
+    <div class="slide">
+    <img src="images/sd.jpg" height="100px" width="250px" alt="" />
+    </div>
+    <div class="slide">
+    <img src="images/mn.jpg" height="100px" width="250px" alt="" />
+    </div>
+    <div class="slide">
+    <img src="images/dw.jpg" height="100" width="250" alt="" />
+    </div>
+    <div class="slide">
+    <img src="images/im.png" height="100" width="250" alt="" />
+    </div>
+    <div class="slide">
+        <img src="images/ka.jpg" height="100" width="250" alt="" />
+    </div>
+</div>
+</div>
+</div>
+<!-- partial -->
+    
+<style>
+    @-webkit-keyframes scroll {
+0% {
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
+100% {
+-webkit-transform: translateX(calc(-250px * 4));
+transform: translateX(calc(-250px * 4));
+}
+}
+@keyframes scroll {
+0% {
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
+100% {
+-webkit-transform: translateX(calc(-350px * 4));
+transform: translateX(calc(-350px * 4));
+}
+}
+.slider {
+background: pr;
+box-shadow: 0 10px 20px -5px rgba(22, 22, 22, 0.125);
+height: 100px;
+margin: auto;
+overflow: hidden;
+position: relative;
+width: 1050px;
+}
+.slider::before, .slider::after {
+background: linear-gradient(to right, rgba(171, 171, 171, 0.9) 0%, rgba(32, 30, 30, 0) 100%);
+content: "";
+height: 100px;
+position: absolute;
+width: 250px;
+z-index: 2;
+}
+.slider::after {
+right: 0;
+top: 0;
+-webkit-transform: rotateZ(180deg);
+transform: rotateZ(180deg);
+}
+.slider::before {
+left: 0;
+top: 0;
+}
+.slider .slide-track {
+-webkit-animation: scroll 35s linear infinite;
+animation: scroll 35s linear infinite;
+display: flex;
+background-color: #fff;
+width: calc(250px * 8);
+}
+.slider .slide {
+height: 100px;
+width: 250px;
+}
+</style>
 </div>
 <style>
     :target{

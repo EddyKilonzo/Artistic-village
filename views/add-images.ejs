@@ -1,15 +1,59 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
+<style>
+    .image-container{
+width: 300px;
+height: 200px;
+margin: 0 auto 30px auto;
+}
+    .image-container{
+width: 150px;
+}
+.image-container img{
+    display: block;
+    position: relative;
+    width:300px;
+    height: 200px;
+    margin-bottom: 0;
+}
+figcaption{
+    margin: 20px 0 30px 0;
+    text-align: center;
+    display: none;
+}
+input[type="file"]{
+    margin-top: 0px;
+}
+     </style>
         
-    <div style="margin-top: 100px;" class="access-point">
-        <form action="/add-image" method="post" enctype="multipart/form-data">
+    <div style="height: 80vh;" class="access-point">
+        <form style="height: 550px;" action="/add-image" method="post" enctype="multipart/form-data">
+            <h2 style="text-align: center;">Add an image</h2>
+            <figure class="image-container">
+                <img id="chosen-image">
+                <figcaption id="file-name" ></figcaption>
+            </figure>
+            <input  type="file" name="images" id="upload-button">
             <label for="">Choose your pic:</label>
-            <input  type="file" name="images" id="">
             <label style="margin-top: 10px;" for="">Description</label>
             <textarea  name="description" id="" cols="30" rows="10"></textarea>
             <button style="margin-top: 10px;" class="btn" type="submit">Submit</button>
             
         </form>
     </div>
+    <script>
+        let uploadButton = document.getElementById("upload-button");
+        let chosenImage = document.getElementById("chosen-image");
+        let fileName = document.getElementById("file-name");
+
+        uploadButton.onchange = () => {
+            let reader = new FileReader();
+            reader.readAsDataURL(uploadButton.files[0]);
+            reader.onload = () => {
+                chosenImage.setAttribute("src",reader.result);
+            }
+            fileName.textContent = uploadButton.files[0].name;
+        }
+    </script>
 
 <%- include('partials/footer') %>

@@ -1,22 +1,64 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
-
-    <div style="margin-top: 100px;" class="access-point">
-        <form action="/input-profile?email=<%=email%>" method="post" enctype="multipart/form-data">
+     <style>
+    .image-container{
+width: 50%;
+height: 50%;
+margin: 0 auto 30px auto;
+}
+    .image-container{
+width: 150px;
+}
+.image-container img{
+    display: block;
+    position: relative;
+    width:100px;
+    height: 100px;
+    border-radius:500px;
+    margin-bottom: 0;
+}
+figcaption{
+    margin: 20px 0 30px 0;
+    text-align: center;
+    display: none;
+}
+input[type="file"]{
+    margin-top: 0px;
+}
+     </style>
+    <div style="margin-top: 5px;" class="access-point" >
+        <form style="height: 95vh;" action="/input-profile?email=<%=email%>" method="post" enctype="multipart/form-data">
             <h2 style="color: red; text-align: center; margin-bottom: 10px;">Input your profile</h2>
-            <label for="">Choose your profile pic:</label>
-            <input type="file" name="profile-pic" id="">
-            <label for="">services providing:</label>
+            <!-- <label for="">Choose your profile pic:</label> -->
+            <figure class="image-container">
+                <img id="chosen-image">
+                <figcaption id="file-name" ></figcaption>
+            </figure>
+            <input type="file" name="profile-pic" id="upload-button">
+            <label for="">Services providing:</label>
             <input style="height: 30px;" type="text" name="service" id="" required>
             <label for="">BIO:</label>
             <input style="height: 30px;" type="text" name="bio" id="" required>
             <label for="">Pricing:</label>
             <input style="height: 30px;" type="number" name="price" id="" required>
-            <label for="">contact: </label>
+            <label for="">Contact: </label>
             <input style="height: 30px;" type="tel" name="contact" id="" maxlength="10" minlength="10" required>
             <label for="">Based in:</label>
             <input style="height: 30px;" type="text" name="location" id="" required>
             <button style="margin-top: 10px;" class="btn" type="submit">Submit</button>
         </form>    
     </div>
-    <img src="images/wh.jpg" alt="">
+    <script>
+        let uploadButton = document.getElementById("upload-button");
+        let chosenImage = document.getElementById("chosen-image");
+        let fileName = document.getElementById("file-name");
+
+        uploadButton.onchange = () => {
+            let reader = new FileReader();
+            reader.readAsDataURL(uploadButton.files[0]);
+            reader.onload = () => {
+                chosenImage.setAttribute("src",reader.result);
+            }
+            fileName.textContent = uploadButton.files[0].name;
+        }
+    </script>

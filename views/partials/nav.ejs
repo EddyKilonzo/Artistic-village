@@ -5,11 +5,13 @@
             <small class="text">ONE STORY AT A TIME</small>
         </div>
         <ul>
+            <li class="nav-link"><a href="/">Home</a></li>
             <li class="nav-link"><a href="/find-talent">Find-Talent</a></li> 
             <% if(locals.isLoggedIn) { %>
                 <li class="nav-link"><a href="/profile/<%= locals.userID %>">Profile</a></li>
                 <li class="nav-link"><a href="/logout">Logout</a></li>
             <% } else {%>
+               
                 <li class="nav-link"><a href="/login">Log In</a></li>
                 <li class="nav-link"><a href="/signup">Sign Up</a></li>
             <% } %>

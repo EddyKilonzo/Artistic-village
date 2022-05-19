@@ -11,14 +11,8 @@
             <input class="form-input" type="text" name="username" id="" value="<%= username %>">
             <label for="">Password:</label>
             <input class="form-input" type="password" name="password" id="" value="<%= password %>" >
-            <div id="eye-wrapper" onclick="toggle()">
-                <img src="images/eye-open.svg" id="open">
-            </div>
             <label for="">Confirm Password:</label>
             <input class="form-input" type="password" name="confirmPassword"  id="" value="<%= confirmPassword %>" >
-            <div id="eye-wrapper"  onclick="toggle()">
-                <img src="images/eye-open.svg" id="open">
-            </div>
         <% } else { %>
             <label for="">Email:</label>
             <input class="form-input" type="email" name="email" id=""  required>
@@ -31,14 +25,11 @@
             </div> -->
             <label for="">Confirm Password:</label>
             <input class="form-input" type="password" name="confirmPassword" id="" required> <br>
-            <!-- <div id="eye-wrapper" onclick="toggle()">
-                <img src="images/eye-open.svg" id="open">
-            </div> <br> -->
         <% } %>
-        
         <input type="submit" value="Sign Up" class="btn">
         <p> Alerady have an account? <a href="/login">Sign In</a> </p>
     </form>
 </main>
+
 
 <%- include('partials/footer') %>
