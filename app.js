@@ -20,6 +20,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: false}))
 
 
+
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -48,6 +49,7 @@ app.get('/signup', (req, res) => {
         password: '',
         confirmPassword: '',
     }
+    
     res.render('signup.ejs', {error:false, user: user})
 });
 app.post('/signup', (req, res) => {
