@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import session  from "express-session";
 import multer from "multer";
 import { render } from "ejs";
+import swal from 'sweetalert';
 
 const app = express();
 const connection = mysql.createConnection({
@@ -221,7 +222,13 @@ app.get('/user/:id', (req, res) => {
 })
 })    
 app.get('/input-profile', (req, res)=>{
-        res.render('input-profile.ejs', {email: req.query.email})
+    let welcometxt = swal({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success",
+        button: "Aww yiss!",
+      });
+        res.render('input-profile.ejs', {email: req.query.email},{swal:welcometxt})
 })
 app.post('/input-profile', upload.single('profile-pic'),  (req, res)=>{
     console.log(req.query.email)
