@@ -1,0 +1,71 @@
+select {
+    display: none;
+}
+ @media screen and (max-width:600px) {
+    .slideshow-item-text {
+        max-width: 110%;
+        position: absolute;
+        top: 40%;
+        left: 15%;
+    }
+    .slideshow-item-text .h5 {
+        font-size: 28px;
+
+    }
+    .slideshow-item-text p {
+        font-size: 12px;
+    }
+    .about-container {
+        margin-top: 50px;
+        z-index: 1;
+        width: 100%;
+    }
+    .image-container img  {
+        width: 300px;
+        height: 300px;
+    }
+    .text-container p {
+        font-size: 15px;
+        margin-left: 20px;
+    }
+    .text-container #read {
+        margin-left: 20px;
+    }
+    #grid .bio {
+        margin-left: 5px;
+        width: 280px;
+        height: 500px;
+    }
+    #grid .bio img {
+        width: 150px;
+        height: 150px;
+    }
+    #grid .profile .user-gallery img {
+        width: 305px;
+        height: 300px;
+    }
+    #nav2 .up  h1 a{
+        display: flex;
+        font-size: 15px;
+    }
+    #nav2 .up  small {
+        font-size: 8px;
+    }
+    .nav2-link a{
+        font-size: 13px;
+        padding: 0;
+    }
+    nav .up  h1 a{
+        display: flex;
+        font-size: 15px;
+    }
+    nav .up  small {
+        font-size: 8px;
+    }
+    .nav-link a{
+        font-size: 13px;
+        padding: 0;
+    }
+    
+
+ }

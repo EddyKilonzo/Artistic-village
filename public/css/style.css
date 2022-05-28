@@ -33,7 +33,6 @@ html {
 }
 body {
     background-color: #13131a;
-    /* overflow: hidden; */
     overflow-y:scroll;
 }
 header {
@@ -195,7 +194,6 @@ ul .nav2-link {
     transform: translateY(-50%);
     border-radius: 10px;
     /* background-color: rgba(10, 7, 21, 0.5); */
-    color: #000;
     font-family: Exo;
 }
 .slideshow-item-text .h5 {
@@ -310,23 +308,10 @@ ul .nav2-link {
     color: black;
     border:  2px solid red;
 }
-@media screen  and (max-width: 600px){
-    .about-container {
-        width: 90%;
-    }
-    .image-container {
-        width: 400px;
-        height: 400px;
-    }
-    .text-container h1{
-        font-size: 30px;
-    }
-    
-}
 footer {
     background-color: #11151e;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 20px;
   }
   footer * {
@@ -591,7 +576,6 @@ form {
     box-shadow: #3b0000 5px 5px 5px;
     border-radius: 8px;
     transition: transform 250ms, box-shadow 250ms;
-
     margin-left: 125px;
     /* border-radius: 10px; */
     padding: 8px;
@@ -610,7 +594,7 @@ button:active {
     box-shadow:2px 2px 2px #8d0e0e;
     transition: 200ms;
 } */
-.bio img {
+.bio img { 
     width:250px;
     height: 250px;
     border-radius:600px;
@@ -949,17 +933,17 @@ button:active {
     color: #da0000;
     margin-bottom: 10px;
   }
-  @media screen and (max-width:960px) {
+  @media screen and (max-width:660px) {
   .col{
     flex: 100%;
-    max-width: 80%;
+    max-width: 90%;
   }
   }
   
   @media screen and (max-width:600px) {
   .col{
     flex: 100%;
-    max-width: 100%;
+    max-width: 90%;
   }
   }
   .button-value {
@@ -980,16 +964,18 @@ button:active {
     color: #ffffff;
     border: 1px solid silver;
   }
-@media screen  and (max-width:670px) {
+@media screen  and (max-width:600px) {
     .footer {
-        font-size: 13px;
-        margin-top: 100%;
-        position: absolute;
-        top: 125%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        font-size: 29px;
     }
+    .row.primary {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+        font-size: 13px;
+        letter-spacing: 0;
+        word-spacing: 1px;
+      }
     .form-text {
         color: rgb(255, 0, 0);
         font-family: Exo;
@@ -1032,14 +1018,14 @@ button:active {
         transition: transform  300ms ease-in-out;
         
     }
+    #talents .single-talent > a img {
+        margin-left: 150px;
+    }
+    #talents .single-talent a button {
+        margin-left: 190px;
+    }
     #talents  {
         margin-left:50px;
         margin-right: 10px;
     }
-    .row.primary {
-        grid-template-columns: 1fr;
-      }
-      .row.secondary {
-        flex-direction: column;
-      }
 }

@@ -1,3 +1,4 @@
+
 var i=0
 function read() {
   if(!i){
@@ -35,4 +36,4 @@ let calcScrollValue = () => {
   window.onscroll = calcScrollValue;
   window.onload = calcScrollValue;
   
-
+  
